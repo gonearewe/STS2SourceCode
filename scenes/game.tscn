@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cywpu6lxdjhuu"]
+[gd_scene format=3 uid="uid://cywpu6lxdjhuu"]
 
 [ext_resource type="Script" uid="uid://bwmdvdn8t74su" path="res://src/Core/Nodes/NGame.cs" id="1_17mmo"]
 [ext_resource type="Script" uid="uid://c8hc860ieuoqv" path="res://src/Core/Nodes/Vfx/Utilities/NScreenShake.cs" id="2_6syl0"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://b4nvrtmyq26d" path="res://src/Core/Nodes/CommonUi/NModalContainer.cs" id="9_b3h4v"]
 [ext_resource type="Script" uid="uid://btkusimm387cd" path="res://src/Core/Nodes/CommonUi/NHotkeyManager.cs" id="10_5newe"]
 [ext_resource type="PackedScene" uid="uid://cx5drrrs5pc4n" path="res://scenes/ui/reaction_wheel.tscn" id="10_e5wmr"]
-[ext_resource type="Script" uid="uid://dtfio45agppyj" path="res://addons/mega_text/MegaLabel.cs" id="10_pl11u"]
 [ext_resource type="Script" uid="uid://do5u07g18kexo" path="res://src/Core/Nodes/Multiplayer/NRemoteMouseCursorContainer.cs" id="11_qnxr0"]
 [ext_resource type="Script" uid="uid://d2ydcv05jeaw2" path="res://src/Core/Nodes/CommonUi/NInputManager.cs" id="12_qnb83"]
 [ext_resource type="Script" uid="uid://kk8vu1uvjlxb" path="res://src/Core/Nodes/Reaction/NReactionContainer.cs" id="13_negux"]
@@ -47,7 +46,7 @@ reflected_light_source = 1
 glow_enabled = true
 adjustment_enabled = true
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" unique_id=957452126]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,60 +57,60 @@ script = ExtResource("1_17mmo")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1766480795]
 bank_paths = ["res://banks/desktop/Master.strings.bank", "res://banks/desktop/Master.bank", "res://banks/desktop/sfx.bank", "res://banks/desktop/temp_sfx.bank", "res://banks/desktop/ambience.bank"]
 
-[node name="AudioManager" type="Node" parent="."]
+[node name="AudioManager" type="Node" parent="." unique_id=632796623]
 unique_name_in_owner = true
 script = ExtResource("2_leyxa")
 
-[node name="Proxy" type="Node" parent="AudioManager"]
+[node name="Proxy" type="Node" parent="AudioManager" unique_id=485179200]
 script = ExtResource("3_xfu11")
 
-[node name="FmodListener2D" type="FmodListener2D" parent="AudioManager"]
+[node name="FmodListener2D" type="FmodListener2D" parent="AudioManager" unique_id=1105368246]
 
-[node name="DebugAudioManager" type="Node" parent="."]
+[node name="DebugAudioManager" type="Node" parent="." unique_id=318839069]
 unique_name_in_owner = true
 script = ExtResource("4_u0665")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=1994563671]
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=2093203340]
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=1984845531]
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=41137572]
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=1210216236]
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=585516212]
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=1257176161]
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=724333231]
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=2044966438]
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="DebugAudioManager"]
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="DebugAudioManager" unique_id=1224820502]
 
-[node name="ScreenShake" type="Node" parent="."]
+[node name="ScreenShake" type="Node" parent="." unique_id=881207195]
 script = ExtResource("2_6syl0")
 
-[node name="HitStop" type="Node" parent="."]
+[node name="HitStop" type="Node" parent="." unique_id=1444458663]
 script = ExtResource("5_t0417")
 
-[node name="FeedbackOpener" type="Node" parent="."]
+[node name="FeedbackOpener" type="Node" parent="." unique_id=2003668735]
 script = ExtResource("7_ttb0s")
 
-[node name="InputManager" type="Node" parent="."]
+[node name="InputManager" type="Node" parent="." unique_id=1417742801]
 unique_name_in_owner = true
 script = ExtResource("12_qnb83")
 
-[node name="ControllerManager" type="Node" parent="InputManager"]
+[node name="ControllerManager" type="Node" parent="InputManager" unique_id=810211209]
 unique_name_in_owner = true
 script = ExtResource("5_g1jgq")
 
-[node name="Label" type="Label" parent="InputManager/ControllerManager"]
+[node name="Label" type="Label" parent="InputManager/ControllerManager" unique_id=1507289652]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -129,25 +128,23 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("6_ld1u3")
 theme_override_font_sizes/font_size = 36
 text = "Controller Detected"
-script = ExtResource("10_pl11u")
-AutoSizeEnabled = false
 
-[node name="HotkeyManager" type="Node" parent="."]
+[node name="HotkeyManager" type="Node" parent="." unique_id=147907619]
 unique_name_in_owner = true
 script = ExtResource("10_5newe")
 
-[node name="CursorManager" type="Node" parent="."]
+[node name="CursorManager" type="Node" parent="." unique_id=102269333]
 unique_name_in_owner = true
 script = ExtResource("5_14csm")
 _cursorTilted = ExtResource("23_cursor_tilted")
 _cursorNotTilted = ExtResource("22_cursor_default")
 _cursorInspect = ExtResource("24_cursor_inspect")
 
-[node name="RootSceneContainer" parent="." instance=ExtResource("3_uqayl")]
+[node name="RootSceneContainer" parent="." unique_id=689200197 instance=ExtResource("3_uqayl")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="InspectionContainer" type="Control" parent="."]
+[node name="InspectionContainer" type="Control" parent="." unique_id=643200185]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -159,7 +156,7 @@ mouse_filter = 2
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="RemoteCursorContainer" type="Control" parent="."]
+[node name="RemoteCursorContainer" type="Control" parent="." unique_id=843109555]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -170,12 +167,12 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("11_qnxr0")
 
-[node name="ReactionWheel" parent="." instance=ExtResource("10_e5wmr")]
+[node name="ReactionWheel" parent="." unique_id=484720319 instance=ExtResource("10_e5wmr")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[node name="ReactionContainer" type="Control" parent="."]
+[node name="ReactionContainer" type="Control" parent="." unique_id=735171962]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -186,13 +183,13 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("13_negux")
 
-[node name="HoverTipsContainer" type="Control" parent="."]
+[node name="HoverTipsContainer" type="Control" parent="." unique_id=517208597]
 unique_name_in_owner = true
 z_as_relative = false
 anchors_preset = 0
 mouse_filter = 2
 
-[node name="ModalContainer" type="Control" parent="."]
+[node name="ModalContainer" type="Control" parent="." unique_id=881595120]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -203,7 +200,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_b3h4v")
 
-[node name="Backstop" type="ColorRect" parent="ModalContainer"]
+[node name="Backstop" type="ColorRect" parent="ModalContainer" unique_id=509934072]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -214,11 +211,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="FeedbackScreen" parent="." instance=ExtResource("17_5newe")]
+[node name="FeedbackScreen" parent="." unique_id=512142701 instance=ExtResource("17_5newe")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="GameTransitionRect" type="ColorRect" parent="."]
+[node name="GameTransitionRect" type="ColorRect" parent="." unique_id=1326839910]
 unique_name_in_owner = true
 z_as_relative = false
 material = ExtResource("8_gs5rr")
@@ -237,7 +234,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("7_a2w36")
 
-[node name="GradientTransition" type="TextureRect" parent="GameTransitionRect"]
+[node name="GradientTransition" type="TextureRect" parent="GameTransitionRect" unique_id=1214368289]
 modulate = Color(0, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -250,7 +247,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_5newe")
 
-[node name="SimpleTransition" type="ColorRect" parent="GameTransitionRect"]
+[node name="SimpleTransition" type="ColorRect" parent="GameTransitionRect" unique_id=1350845735]
 modulate = Color(0, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -260,16 +257,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MultiplayerTimeoutOverlay" parent="." instance=ExtResource("19_1kice")]
+[node name="MultiplayerTimeoutOverlay" parent="." unique_id=76315640 instance=ExtResource("19_1kice")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1460871522]
 unique_name_in_owner = true
 environment = SubResource("Environment_smd41")
 
-[node name="MuteInBackgroundHandler" type="Node" parent="."]
+[node name="MuteInBackgroundHandler" type="Node" parent="." unique_id=1620639648]
 script = ExtResource("21_5newe")
 
-[node name="BackgroundModeHandler" type="Node" parent="."]
+[node name="BackgroundModeHandler" type="Node" parent="." unique_id=221510963]
 script = ExtResource("22_bgmode")

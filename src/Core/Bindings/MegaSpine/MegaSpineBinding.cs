@@ -27,11 +27,19 @@ public abstract class MegaSpineBinding
 
 	protected Error Connect(string signalName, Callable callable)
 	{
+		if (BoundObject == null)
+		{
+			throw new InvalidOperationException($"Cannot connect signal {signalName} on {GetType().Name}: BoundObject is null.");
+		}
 		return BoundObject.Connect(signalName, callable);
 	}
 
 	protected void Disconnect(string signalName, Callable callable)
 	{
+		if (BoundObject == null)
+		{
+			throw new InvalidOperationException($"Cannot disconnect signal {signalName} on {GetType().Name}: BoundObject is null.");
+		}
 		BoundObject.Disconnect(signalName, callable);
 	}
 
@@ -40,6 +48,10 @@ public abstract class MegaSpineBinding
 		if (!SpineMethods.Contains(methodName))
 		{
 			throw new InvalidOperationException($"You must add {methodName} to {GetType().Name}.SpineMethods before calling it!");
+		}
+		if (BoundObject == null)
+		{
+			throw new InvalidOperationException($"Cannot call {methodName} on {GetType().Name}: BoundObject is null. The GDExtension Spine backend returned a null/invalid reference.");
 		}
 		return BoundObject.Call(methodName, args);
 	}
@@ -54,7 +66,7 @@ public abstract class MegaSpineBinding
 	{
 		if (BoundObject == null)
 		{
-			return;
+			throw new InvalidOperationException($"Bound object is null! Expected a {SpineClassName}. The GDExtension method likely returned a null/invalid reference.");
 		}
 		if (BoundObject.GetClass() != SpineClassName)
 		{

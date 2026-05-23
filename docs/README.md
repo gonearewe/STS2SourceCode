@@ -12,6 +12,7 @@
 | [03-core-gameplay.md](./03-core-gameplay.md) | 战斗系统、卡牌系统、遗物/药水/能力系统、地图与 Run 流程 |
 | [04-design-patterns.md](./04-design-patterns.md) | 使用的设计模式详解（命令模式、Hook 系统、Model 体系等） |
 | [05-potential-issues.md](./05-potential-issues.md) | 潜在问题与改进建议 |
+| [06-module-dependencies.md](./06-module-dependencies.md) | 模块依赖关系与运行时调用顺序 |
 
 ## 快速导航
 

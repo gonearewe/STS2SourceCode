@@ -28,7 +28,6 @@ public static class SteamStatsManager
 			_globalStatsReady = false;
 			_globalArchitectDamage = 0L;
 			_userStatsReceivedCallback = Callback<UserStatsReceived_t>.Create(OnUserStatsReceived);
-			SteamUserStats.RequestCurrentStats();
 			TaskHelper.RunSafely(RefreshGlobalStats());
 		}
 	}

@@ -22,6 +22,8 @@ public partial class NLogoAnimation : Control, IScreenContext
 
 	private MegaSprite _spineSprite;
 
+	private MegaAnimationState? _animationState;
+
 	private Color _logoBgColor = new Color("074254FF");
 
 	private Tween? _tween;
@@ -43,6 +45,7 @@ public partial class NLogoAnimation : Control, IScreenContext
 		_logoContainer = GetNode<Control>("%Container");
 		_logoSpineNode = GetNode<Node2D>("Container/SpineSprite");
 		_spineSprite = new MegaSprite(_logoSpineNode);
+		_animationState = _spineSprite.GetAnimationState();
 		_logoSpineNode.Visible = false;
 		Rect2 bounds = _spineSprite.GetSkeleton().GetBounds();
 		float num = Math.Min(base.Size.X * 0.33f / bounds.Size.X, base.Size.Y * 0.33f / bounds.Size.Y);
@@ -66,7 +69,12 @@ public partial class NLogoAnimation : Control, IScreenContext
 			return;
 		}
 		_logoSpineNode.Visible = true;
-		_spineSprite.GetAnimationState().SetAnimation("animation", loop: false);
+		if (_animationState == null)
+		{
+			GD.PushWarning("NLogoAnimation: Spine animation state is null, skipping logo animation playback");
+			return;
+		}
+		_animationState.SetAnimation("animation", loop: false);
 		NDebugAudioManager.Instance.Play("SOTE_Logo_Echoing_ShortTail.mp3");
 		_tween.Kill();
 		_tween = CreateTween().SetParallel();
@@ -74,7 +82,7 @@ public partial class NLogoAnimation : Control, IScreenContext
 			.SetTrans(Tween.TransitionType.Back);
 		_tween.TweenProperty(_logoContainer, "modulate", Colors.White, 0.5);
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-		while (!_spineSprite.GetAnimationState().GetCurrent(0).IsComplete())
+		while (_animationState.GetCurrent(0)?.IsComplete() != true)
 		{
 			if (token.IsCancellationRequested)
 			{
